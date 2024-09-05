@@ -1,4 +1,4 @@
-#Sawyer Wood, Celsius to Fahrenhiet calculator.
+#Sawyer Wood, Celsius to Fahrenhiet calculator(Assaignment).
 
 Inputype = input("What type of degrees are you putting into the claclulator? F or C or K: ")
 
