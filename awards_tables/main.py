@@ -1,4 +1,4 @@
-#Sawyer Wood, Variables.
+#Sawyer Wood, Variables..
 
 students = 100
 students = students-1
