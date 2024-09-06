@@ -1,5 +1,5 @@
 #This is for fun
-
+#Find out what is wrong with the Outputwanted not like having to options it could be for the "if" statements.
 #So I can do math :|
 import math
 
