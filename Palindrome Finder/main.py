@@ -1,4 +1,4 @@
-#Sawyer Wood, SkillPractice: Palindrome
+#Sawyer Wood, SkillPractice: Palindrome.
 
 word = input("What is the word you want to put int?: " )
 if word == word [::-1]:
