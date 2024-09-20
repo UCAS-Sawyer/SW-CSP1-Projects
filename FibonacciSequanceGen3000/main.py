@@ -1,11 +1,12 @@
 #Sawyer Wood, Fibonacci Sequance RAID.
 
-Origin1 = 0
-Origin2 = 1
+Origin1 = float(input("What is your first number?: "))
+Origin2 = float(input("What is your second number?: "))
 HowManyTimes = int(input("How many unmbers do you want?: "))
-HowManyTimes = HowManyTimes - 2
+HowManyTimes = HowManyTimes - 3
 Count = 0
 print(Origin1)
+print(Origin2)
 
 while Count <= HowManyTimes:
     Count = Count + 1
