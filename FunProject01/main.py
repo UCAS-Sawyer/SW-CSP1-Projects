@@ -7,6 +7,7 @@ prize3 = 30
 prize4 = 70
 prize5 = 145
 jackpot = 300
+casinogain = 0
 while money > 0:
     spin = input("Spin?: ")
     if spin == str("Yes"):
