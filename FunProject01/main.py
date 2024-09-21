@@ -22,8 +22,12 @@ while money > 0:
 
     if keyboard.read_key() == "s":
         spincount = spincount + 1
-        money = money - 20
-        casinogain = casinogain + 20
+        if spincount <= 50:
+            money = money - 20
+            casinogain = casinogain + 20
+        else:
+            money = money -30
+            casinogain = casinogain + 30
         num = random.randint(0,100)
         if num <= 50:
             money = money + prize1
