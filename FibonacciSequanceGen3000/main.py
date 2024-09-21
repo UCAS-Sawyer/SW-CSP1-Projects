@@ -2,12 +2,10 @@
 
 Origin1 = 0
 Origin2 = 1
-num1 = Origin1
-num2 = Origin2
 HowManyTimes = int(input("How many unmbers do you want?: "))
-HowManyTimes = HowManyTimes - 2
+HowManyTimes = HowManyTimes - 3
 Count = 0
-print(num1)
+print(Origin1)
 
 while Count <= HowManyTimes:
     Count = Count + 1
