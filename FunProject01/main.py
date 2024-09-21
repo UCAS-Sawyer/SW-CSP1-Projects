@@ -11,29 +11,28 @@ while money > 0:
     spin = input("Spin?: ")
     if spin == str("Yes"):
         money = money -15
-        print(money)
         num = random.randint(0,100)
         if num <= 50:
             money = money + prize1
             print("You won", prize1, "dollors!")
             
-        elif 75 >= num > 50:
+        if 75 >= num > 50:
             money = money + prize2
             print("You won", prize2, "dollors!")
 
-        elif 87 >= num > 75:
+        if 87 >= num > 75:
             money = money + prize3
             print("You won", prize3, "dollors!")
 
-        elif 93 >= num > 87:
+        if 93 >= num > 87:
             money = money + prize4
             print("You won", prize4, "dollors!")
         
-        elif 99 >= num > 93:
+        if 99 >= num > 93:
             money = money + prize5
             print("You won", prize5, "dollors!")
         
-        elif num == 100:
+        if num == 100:
             money = money + jackpot
             print("You won", jackpot, "dollors!")
     print("You currently have", money, "dollors!")
