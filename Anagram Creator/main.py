@@ -3,5 +3,7 @@ import random
 
 name = input("What is your name?: ")
 num = len(name)
-name = [*name]
-print(name[0:num])
+counter = num
+while counter > -1:
+    print(name[random.randint(0, num)])
+    counter = counter - 1
