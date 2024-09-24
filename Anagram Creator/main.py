@@ -1,9 +1,12 @@
 #Sawyer Wood, Anagram Creator RAID
 import random
-
 name = input("What is your name?: ")
-num = len(name)
-counter = num
-while counter > -1:
-    print(name[random.randint(0, num)])
-    counter = counter - 1
+counter = 0
+num = int(input("How many anagrams do you want?: "))
+
+while counter < num:
+    counter = counter + 1
+    name = list(name)
+    random.shuffle(name)
+    name = ''.join(name)
+    print(name)
