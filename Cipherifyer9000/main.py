@@ -2,14 +2,14 @@
 word = input("What is the word you want to Cipherify?: ")
 idk = input("Do you want to cipherify or decipherify?: ")
 alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-shiftedalphabet = ["b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a"]
+shiftedalphabet = ["c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b"]
 
-stopoint = len(word)
 def Cipherify(word):
     wordspot = 0
     alphabetspot = 0
-    
-    while wordspot <= stopoint:
+    stopoint = len(word)
+
+    while wordspot < stopoint:
         if word[wordspot] == alphabet[alphabetspot]:
             letter = shiftedalphabet[alphabetspot]
             wordspot = wordspot + 1
@@ -21,8 +21,9 @@ def Cipherify(word):
 def Decipherify(word):
     wordspot = 0
     alphabetspot = 0
-    
-    while wordspot <= stopoint:
+    stopoint = len(word)
+
+    while wordspot < stopoint:
         if word[wordspot] == shiftedalphabet[alphabetspot]:
             letter = alphabet[alphabetspot]
             wordspot = wordspot + 1
