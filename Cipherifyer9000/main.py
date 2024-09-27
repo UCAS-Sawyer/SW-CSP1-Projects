@@ -1,14 +1,13 @@
 #Sawyer Wood, ProficiencyTest Secret Sypher.
-word = input("What is the word you want to Cipherify/Decipherify?: ")
+word = input("What is the word you want to Cipher/Decipher?: ")
 idk = input("Do you want to cipherify or decipherify?: ")
-alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", "1"]
-shiftedalphabet = ["c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", ":", "1"]
+alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1"]
+shiftedalphabet = ["c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", ":", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "1"]
 
 def Cipherify(word):
     wordspot = 0
     alphabetspot = 0
     stopoint = len(word)
-    print(stopoint)
     while wordspot < stopoint:
         if word[wordspot] == alphabet[alphabetspot]:
             letter = shiftedalphabet[alphabetspot]
@@ -32,7 +31,7 @@ def Decipherify(word):
         else:
             alphabetspot = alphabetspot + 1
 
-if idk == ["c", "cipher", "C", "Cipher"]:
+if idk == str("cipher"):
     Cipherify(word)
-else:
+elif idk == str("decipher"):
     Decipherify(word)
