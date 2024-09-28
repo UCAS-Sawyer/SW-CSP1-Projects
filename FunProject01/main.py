@@ -12,7 +12,8 @@ casinogain = 0
 spincount = 0
 print("Starting")
 TheWayYouWantToLooseYourMoney = input("What is your desired choice of gambling?(Spin or Guess): ")
-if TheWayYouWantToLooseYourMoney == str("Spin"):
+TheWayYouWantToLooseYourMoney = TheWayYouWantToLooseYourMoney.lower()
+if TheWayYouWantToLooseYourMoney == str("spin"):
     print("Press S to spin.")
     while money > 0:
 
