@@ -11,7 +11,14 @@ def add_to_list(item, my_list=None):
 print(add_to_list(2))
 print(add_to_list(2))
 
-print(add_to_list( "s", ["j", "k"]))
+list1 = ["1"]
 
 
-print(add_to_list("h", ["i", "j"]))
+list1 = add_to_list( "s", list1)
+print(list1)
+
+list1 = add_to_list("h", list1)
+print(list1)
+
+list1 = add_to_list("hello world", list1)
+print(list1)
