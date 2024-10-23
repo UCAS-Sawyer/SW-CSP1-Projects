@@ -1,45 +1,38 @@
 #Sawyer Wood, password validator skill practice.
 
-password = input("What is the password that you want to check?:\t")
+import re
 
-def passwordnum(x):
-    lenx = len(x)
-    counter = 0
-    while counter < lenx:
-        if password[counter] == int:
+def passwordnum(password):
+    for x in password:
+        if x.isdigit():
             return True
-        
-        if password[counter] != int:
-            counter = counter + 1
+    return False
 
-def passwordspec(x):
-    lenx = len(x)
-    counter = 0
-    while counter < lenx:
-        if password[counter] != str or int:
-            return True
-        
-        if password[counter] == str or int:
-            counter = counter + 1
-        
-#Condition 1
-while len(password) < 8:
-    print("You need a longer password(8 Characters), try again.")
-    password = input("What is the password that you want to check?:\t")
-else:
-    print("\nThat is enough characters.")
+def passwordspec(password):
+    pattern = r'[!@#$%^&*(),.?":{}|<>]'
+    return bool(re.search(pattern, password))
 
-#Condition 2
-while passwordnum(password) == False:
-    print("You need a number, try again.")
-    password = input("What is the password that you want to check?:\t")
-else:
-    print("\nYou have a number.")
-
-#Condition 3
-while passwordspec(password) == False:
-    print("You need a special character, try again.")
+while True:    
     password = input("What is the password that you want to check?:\t")
 
-else:
-    print("\nYour password is good.\n")
+    #Condition 1
+    if len(password) < 8:
+        print("You need a longer password(8 Characters), try again.\n")
+        continue
+    else:
+        print("\nThat is enough characters.\n")
+
+    #Condition 2
+    if passwordnum(password) == False:
+        print("Please add a number, try again.\n")
+        continue
+    else:
+        print("You have a number.\n")
+
+    #Condition 3
+    if passwordspec(password) == False:
+        print("Please add a special character, try again.\n")
+        continue
+    else:
+        print("Your password is good.\n")
+        break
