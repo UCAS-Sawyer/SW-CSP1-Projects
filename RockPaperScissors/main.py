@@ -45,26 +45,26 @@ while True:
     
     elif action != computeraction:
 
-        if action in ["rock", "r"] and computeraction == "p":
+        if action == "r" and computeraction == "p":
             computerscore += 1
             loss()
 
-        if action in ["rock", "r"] and computeraction == "s":
+        if action == "r" and computeraction == "s":
             humanscore += 1
             win()
 
-        if action in ["paper", "p"] and computeraction == "s":
+        if action == "p" and computeraction == "s":
             computerscore += 1
             loss()
 
-        if action in ["paper", "p"] and computeraction == "r":
+        if action == "p" and computeraction == "r":
             humanscore += 1
             win()
     
-        if action in ["scissors", "s"] and computeraction == "r":
+        if action == "s" and computeraction == "r":
             computerscore += 1
             loss()
 
-        if action in ["scissors", "s"] and computeraction == "p":
+        if action == "s" and computeraction == "p":
             humanscore += 1
             win()
