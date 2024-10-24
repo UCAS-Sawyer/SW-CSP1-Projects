@@ -1,55 +1,70 @@
 #Sawyer Wood, rock paper scissors proficiency test
 import random
 
-humanscore = 0 #fix this and local value stufffffff
+humanscore = 0
 computerscore = 0
+
+array1 = {
+    "r": "rock",
+    "p": "paper",
+    "s": "scissor"
+}
 
 def loss():
     print("Loss, Bot gets one point.")
-    computerscore = computerscore + 1
-    print(f"You score is {humanscore} and the bot's is {computerscore}")
+    print(f"Your score is {humanscore} and the bot's is {computerscore}")
 
 def win():
     print("WIN, you get one point.")
-    humanscore = humanscore + 1
-    print(f"You score is {humanscore} and the bot's is {computerscore}")
+    print(f"Your score is {humanscore} and the bot's is {computerscore}")
+
+moves= ["r", "p", "s"]
+
 
 while True:
     action = input("rock, paper, or scissors?: ")
     action = action.lower()
-    computeraction = random.randint(1,3)
 
-    if computeraction == 1:
-        computeraction = "Rock"
+    computeractionchoice = random.choices(moves)
+    computeraction = computeractionchoice[0]
 
-    if computeraction == 2:
-        computeraction = "Paper"
+    if action == "q":
+        print("Done")
+        break
 
-    if computeraction == 3:
-        computeraction = "Scissors"
-
-    print(f"The computer chose {computeraction}")
+    if action not in moves:
+        print("You can only try 'r' 'p' 's' or 'q'")
+        continue
+    
+    print(f"\tThe computer chose {array1[computeraction]}")
 
     if action == computeraction:
         print("Draw, no points")
-        print(f"You score is {humanscore} and the bot's is {computerscore}")
+        print(f"Your score is {humanscore} and the bot's is {computerscore}")
+        continue
     
-    if action != computeraction:
+    elif action != computeraction:
 
-        if action in ["rock", "r"] and computeraction == "Paper":
+        if action in ["rock", "r"] and computeraction == "p":
+            computerscore += 1
             loss()
 
-        if action in ["rock", "r"] and computeraction == "Scissors":
+        if action in ["rock", "r"] and computeraction == "s":
+            humanscore += 1
             win()
 
-        if action in ["paper", "p"] and computeraction == "Scissors":
+        if action in ["paper", "p"] and computeraction == "s":
+            computerscore += 1
             loss()
 
-        if action in ["paper", "p"] and computeraction == "Rock":
+        if action in ["paper", "p"] and computeraction == "r":
+            humanscore += 1
             win()
     
-        if action in ["scissors", "s"] and computeraction == "Rock":
+        if action in ["scissors", "s"] and computeraction == "r":
+            computerscore += 1
             loss()
 
-        if action in ["scissors", "s"] and computeraction == "Paper":
+        if action in ["scissors", "s"] and computeraction == "p":
+            humanscore += 1
             win()
