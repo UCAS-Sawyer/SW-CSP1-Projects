@@ -1,4 +1,6 @@
 #4fun
+#You need to put "pip install mouse" into your terminal.
+
 import keyboard
 import random
 money = 100
@@ -10,10 +12,39 @@ prize5 = 145
 jackpot = 300
 casinogain = 0
 spincount = 0
+guesscount = 0
 print("Starting")
 TheWayYouWantToLooseYourMoney = input("What is your desired choice of gambling?(Spin or Guess): ")
 TheWayYouWantToLooseYourMoney = TheWayYouWantToLooseYourMoney.lower()
-if TheWayYouWantToLooseYourMoney == str("spin"):
+
+if TheWayYouWantToLooseYourMoney == "guess":
+    print("Press G to guess")
+    while money > 0:
+        if keyboard.read_key() == "p":
+         money = 0
+         print("You forfeit")
+
+        elif keyboard.read_key() == "c":
+            print(guesscount)
+
+        elif keyboard.read_key() == "g":
+            guess = int(input("What number do you want to guess.(1-100, if it is over the number you fail): "))
+            goal = random.randint(0,100)
+            money = money - 15
+
+            print(f"You guessed {guess} the number was {goal}.")
+            if guess == goal:
+                money = money + jackpot
+                casinogain = casinogain - jackpot
+                print(f"You guess the right number!")
+            
+            elif guess > goal:
+                continue
+
+
+
+
+if TheWayYouWantToLooseYourMoney == "spin":
     print("Press S to spin.")
     while money > 0:
 
