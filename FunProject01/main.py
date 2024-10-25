@@ -30,15 +30,24 @@ if TheWayYouWantToLooseYourMoney == "guess":
         elif keyboard.read_key() == "g":
             guess = int(input("What number do you want to guess.(1-100, if it is over the number you fail): "))
             goal = random.randint(0,100)
-            money = money - 15
+            money -= 20
+            casinogain += 20
 
             print(f"You guessed {guess} the number was {goal}.")
+
             if guess == goal:
                 money = money + jackpot
                 casinogain = casinogain - jackpot
-                print(f"You guess the right number!")
+                guesscount += 1
+                print(f"You guess the right number, you got {jackpot}$, you have {money}$ and the casino has gained {casinogain}$")
             
+            elif guess == 50 - 3 or 2 or 1:
+                money = money + prize5
+                casinogain = casinogain - prize5
+                print(f"You guess within three of the right number, you got {prize5}$, you have {money}$ and the casino has gained {casinogain}$")
+
             elif guess > goal:
+                print(f"You guessed too high, you have {money}$ and the casino has gained {casinogain}$")
                 continue
 
 
