@@ -1,4 +1,4 @@
-#Sawyer Wood, Graded Quiz proficiencytest
+#Sawyer Wood, Graded Quiz proficiencytest.
 
 Correct = 0
 Wrong = 0
