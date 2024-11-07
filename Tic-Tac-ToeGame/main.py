@@ -15,24 +15,92 @@ Spot9 = ""
 botmoves = ["Spot1", "Spot2", "Spot3", "Spot4", "Spot5", "Spot6", "Spot7", "Spot8", "Spot9"]
 
 def check_win(board):
-    if board[0 or 1 or 2] == ['X', 'X', 'X']:
+
+    if board[0] == ['X', 'X', 'X']:
         print("Player Won.")
         return True
     
-    if board[0 or 1 or 2] == ['O', 'O', 'O']:
+    elif board[0] == ['O', 'O', 'O']:
         print("Computer Won.")
         return True
 
-for x in range(10):
+    if board[1] == ['X', 'X', 'X']:
+        print("Player Won.")
+        return True
+    
+    elif board[1] == ['O', 'O', 'O']:
+        print("Computer Won.")
+        return True
+    
+    if board[2] == ['X', 'X', 'X']:
+        print("Player Won.")
+        return True
+    
+    elif board[2] == ['O', 'O', 'O']:
+        print("Computer Won.")
+        return True
+
+    elif Spot1 == 'X' and Spot4 == 'X' and Spot7 == 'X':
+        print("Player Won.")
+        return True
+    
+    elif Spot1 == "O" and Spot4 == "O" and Spot7 == 'O':
+        print("Computer Won.")
+        return True
+    
+    elif Spot2 == 'X' and Spot5 == 'X' and Spot8 == 'X':
+        print("Player Won.")
+        return True
+    
+    elif Spot2 == "O" and Spot5 == "O" and Spot8 == 'O':
+        print("Computer Won.")
+        return True
+    
+    elif Spot3 == 'X' and Spot6 == 'X' and Spot9 == 'X':
+        print("Player Won.")
+        return True
+    
+    elif Spot3 == "O" and Spot6 == "O" and Spot9 == 'O':
+        print("Computer Won.")
+        return True
+    
+    elif Spot1 == 'X' and Spot5 == 'X' and Spot9 == 'X':
+        print("Player Won.")
+        return True
+    
+    elif Spot1 == "O" and Spot5 == "O" and Spot9 == 'O':
+        print("Computer Won.")
+        return True
+    
+    elif Spot3 == 'X' and Spot5 == 'X' and Spot7 == 'X':
+        print("Player Won.")
+        return True
+    
+    elif Spot3 == "O" and Spot5 == "O" and Spot7 == 'O':
+        print("Computer Won.")
+        return True
+
+    elif Spot1 and Spot2 and Spot3 and Spot4 and Spot5 and Spot6 and Spot7 and Spot8 and Spot9 != "":
+        print("Tie")
+        return True
+
+while True:
     board = [
     [Spot1, Spot2, Spot3],
     [Spot4, Spot5, Spot6],
     [Spot7, Spot8, Spot9]
     ]
-    #for x in board:
-        #for i in x:
-            #print(i)
-    print(f"{board[0]}\n{board[1]}\n{board[2]}")
+    
+    for x in board:
+        linetext = ""
+        for i in x:
+            linetext = linetext + i + " | "
+        
+        print(linetext)
+
+    if check_win(board) == True:
+        break
+
     playermove = int(input("What spot do you want to take?(1-9)\t"))
 
     if playermove == 1 and Spot1 == "":
@@ -72,11 +140,28 @@ for x in range(10):
         botmoves.remove("Spot9")
     else:
         print("This spot is taken.")
-    
+        continue
+
+    board = [
+    [Spot1, Spot2, Spot3],
+    [Spot4, Spot5, Spot6],
+    [Spot7, Spot8, Spot9]
+    ]
+
+    for x in board:
+        linetext = ""
+        for i in x:
+            linetext = linetext + i + " | "
+        
+        print(linetext)
+
     if check_win(board) == True:
         break
     
+    print("Bot Goes")
+    
     botmove = random.choice(botmoves)
+    
     if botmove == "Spot1":
         Spot1 = "O"
         botmoves.remove("Spot1")
@@ -112,6 +197,3 @@ for x in range(10):
     elif botmove == "Spot9":
         Spot9 = "O"
         botmoves.remove("Spot9")
-    
-    if check_win(board) == True:
-        break
