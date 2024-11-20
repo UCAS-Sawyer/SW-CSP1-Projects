@@ -14,9 +14,16 @@ if typeo in ["i", "I", "Individually", "individually"]:
             break
 
 if typeo in ["l", "L", "list", "List"]:
-    numberline = str(input("List all the numbers(No spaces, can only do 0-9):\t"))
-    for x in numberline:
-        x = int(x)
-        print("\n")
-        for y in range(x):
-            print("*", end = "")
+    x = 0
+    list1 = []
+    amount = int(input("How many numbers are going to be in the list?\t"))
+    while x < amount:
+        x += 1
+        position = int(input("Give one number in the list, left to right.\t"))
+        list1.append(position)
+    else:
+        for x in list1:
+            x = int(x)
+            print("\n")
+            for y in range(x):
+                print("*", end = "")
