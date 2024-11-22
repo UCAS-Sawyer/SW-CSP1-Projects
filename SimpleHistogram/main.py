@@ -1,5 +1,7 @@
 #Sawyer Wood, Simple Histogram RAID
 
+Counter = 0
+
 typeo = input("Do you want to input each one individually or a list?\t")
 
 if typeo in ["i", "I", "Individually", "individually"]:
@@ -25,5 +27,7 @@ if typeo in ["l", "L", "list", "List"]:
         for x in list1:
             x = int(x)
             print("\n")
+            Counter += 1
+            print(f"{Counter}:")
             for y in range(x):
                 print("*", end = "")
