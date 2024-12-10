@@ -197,3 +197,4 @@ while True:
     elif botmove == "Spot9":
         Spot9 = "O"
         botmoves.remove("Spot9")
+        
