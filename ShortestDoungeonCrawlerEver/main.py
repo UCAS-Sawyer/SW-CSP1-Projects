@@ -1,6 +1,6 @@
 #Sawyer Wood, Final
 
-PlayerGold = 9999
+PlayerGold = 0
 Inventory = ["HealthPotion", "SpeedPotion"]
 
 def TownCenter():
