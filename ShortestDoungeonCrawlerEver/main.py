@@ -61,6 +61,7 @@ def Shop():
         if DoYouWantToBuy == "no":
             print("\nYou leave the shop and go back into the town center")
             TownCenter()
+            break
         elif DoYouWantToBuy == "yes":
             WhatDoYouWantToBuy = input("\nWhat would you like to buy?\t")
             WhatDoYouWantToBuy = WhatDoYouWantToBuy.lower()
