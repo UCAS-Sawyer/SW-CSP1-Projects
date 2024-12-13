@@ -398,6 +398,6 @@ def Combat(enemy):
             PlayerHealth -= enemy["Attack"]
             IsPlayerDead()
 
-print("\nAn evil necromancer is living in the old crypt down just out of town. The village has grown worried, so they have picked you to fight him. You have some basic items that they have given you. Good luck.")
+print("\nAn evil necromancer is living in the old crypt down just out of town. The village has grown worried, so they have picked you to fight him. You have some basic items that they have given you. Good luck. Try to do it as fast as you can.")
 print("\nYou walk out of your house, down the cobblestone pathway, to the town center.")
 TownCenter()
