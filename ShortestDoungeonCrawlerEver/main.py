@@ -5,11 +5,13 @@ Inventory = ["Shortsword", "Health Potion"]
 PlayerHealth = 25
 PlayerSpeed = 10
 PlayerStrenght = 3
+WaterCollected = "No"
 BeenToRoom2 = "No"
 BeenToRoom3 = "No"
 ChestOpen4 = "No"
 BeenToRoom5 = "No"
 ChestOpen6 = "No"
+
 
 Room3Monster = {
     "Attack" : 3,
@@ -21,7 +23,7 @@ Room3Monster = {
 
 Boss = {
     "Attack" : 5,
-    "Health" : 130,
+    "Health" : 30,
     "Speed" : 11,
     "Reward" : 50,
     "Monster name" : "Necromancer"
@@ -103,9 +105,14 @@ def House():
         TownCenter()
 
 def River():
+    global WaterCollected
     print("\nYou walk down the dirt pathway to the river. You hear the gushing of the water even before you see it. The path opens up to a river that is fast but fairly small.")
 
     if "Water" in Inventory:
+        print("\nYou sit there for a while, but there is nothing for you to do here so you decide to leave and walk up the path back to the town center.")
+        TownCenter()
+
+    elif WaterCollected == "Yes":
         print("\nYou sit there for a while, but there is nothing for you to do here so you decide to leave and walk up the path back to the town center.")
         TownCenter()
 
@@ -114,6 +121,7 @@ def River():
         CollectWaterChoice = CollectWaterChoice.lower()
 
         if CollectWaterChoice == "yes":
+            WaterCollected = "Yes"
             print("\nYou grab your extra flask and you fill it with the crystal clear water.(+Water)")
             Inventory.append("Water")
 
@@ -255,7 +263,7 @@ def Room4():
         Room6()
             
 def Room5():
-    global PlayerHealth, PlayerGold
+    global PlayerHealth, PlayerGold, BeenToRoom5
     print("\nYou walk into a room with a mystical air to it.")
     if BeenToRoom5 == "No":
         BeenToRoom5 = "Yes"
@@ -279,6 +287,7 @@ def Room5():
 
 def Room6():
     global ChestOpen6, PlayerGold, PlayerHealth
+    print("\nYou enter a room with a chest in the corner.")
     if ChestOpen6 == "No":
         ChestOpen6 = "Yes"
         OpenChest = input("\nDo you want to open the chest.(Yes/No)\t")
@@ -290,7 +299,7 @@ def Room6():
             print("\nInside the chest there is 5 gold and a health potion, you drink it.(+5 health)")
     print("\nYou can go to the fountain room(Room 1), the chest room(Room 4), the reward room(Room 5), or the Boss room(Room 7)")
     Room6Direction = ""
-    while Room6Direction not in ["room 1", "room 4", "room 5", "room 6"]:
+    while Room6Direction not in ["room 1", "room 4", "room 5", "room 7"]:
         Room6Direction = input("\nWhere do you want to go?(Room 1, Room 4, Room 5, Room 7)\t")
         Room6Direction = Room6Direction.lower()
 
@@ -339,7 +348,7 @@ def Combat(enemy):
                     Inventory.remove("Health Potion")
                     PlayerHealth += 7
 
-                    print(f"\nYou chose to heal now it is the monsters turn. Your health is now {PlayerHealth}.")
+                    print(f"\nYou chose to heal, GLUG GLUG GLUG, now it is the monsters turn. Your health is now {PlayerHealth}.")
                 else:
                     print(f"\nYou do not have a health potion, your inventory is {Inventory}. You wasted your time.")
                     continue
@@ -347,10 +356,10 @@ def Combat(enemy):
             if CombatChoice == "attack":
                 if Inventory[0] == "Longsword":
                     enemy["Health"] - (PlayerStrenght + 3)
-                    print(f"\nYou attack the {enemy['Monster name']} with your {Inventory[0]} and you do {PlayerStrenght + 3} damage.")
+                    print(f"\nYou attack the {enemy['Monster name']}BONK with your {Inventory[0]} and you do {PlayerStrenght + 3} damage.")
                 elif Inventory[0] == "Shortsword":
                     enemy["Health"] - (PlayerStrenght + 1)
-                    print(f"\nYou attack the {enemy['Monster name']} with your {Inventory[0]} and you do {PlayerStrenght + 1} damage.")
+                    print(f"\nYou attack the {enemy['Monster name']}SHANK with your {Inventory[0]} and you do {PlayerStrenght + 1} damage.")
 
                 if enemy["Health"] <= 0:
                     print(f"You beat the monster. You get {enemy['Reward']} gold.")
@@ -371,7 +380,7 @@ def Combat(enemy):
                     Inventory.remove("Health Potion")
                     PlayerHealth += 7
 
-                    print(f"\nYou chose to heal now it is the monsters turn. Your health is now {PlayerHealth}.")
+                    print(f"\nYou chose to heal, GLUG GLUG GLUG, now it is the monsters turn. Your health is now {PlayerHealth}.")
                 else:
                     print(f"\nYou do not have a health potion, your inventory is {Inventory}.")
                     continue
@@ -379,11 +388,11 @@ def Combat(enemy):
             if CombatChoice == "attack":
                 if Inventory[0] == "Longsword":
                     enemy["Health"] = enemy["Health"] - (PlayerStrenght + 3)
-                    print(f"\nYou attack the {enemy['Monster name']} with your {Inventory[0]} and you do {PlayerStrenght + 3} damage.")
+                    print(f"\nYou attack the {enemy['Monster name']}BONK with your {Inventory[0]} and you do {PlayerStrenght + 3} damage.")
                     
                 elif Inventory[0] == "Shortsword":
                     enemy["Health"] = enemy["Health"] - (PlayerStrenght + 1)
-                    print(f"\nYou attack the {enemy['Monster name']} with your {Inventory[0]} and you do {PlayerStrenght + 1} damage.")
+                    print(f"\nYou attack the {enemy['Monster name']}SHANK with your {Inventory[0]} and you do {PlayerStrenght + 1} damage.")
 
                 if enemy["Health"] <= 0:
                     print(f"\nYou beat the monster. You get {enemy['Reward']} gold.")
