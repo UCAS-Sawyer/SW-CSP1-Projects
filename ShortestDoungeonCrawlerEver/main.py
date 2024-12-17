@@ -358,10 +358,10 @@ def Combat(enemy):
             if CombatChoice == "attack":
                 if Inventory[0] == "Longsword":
                     enemy["Health"] -= (PlayerStrenght + 3)
-                    print(f"\nYou attack the {enemy['Monster name']}BONK with your {Inventory[0]} and you do {PlayerStrenght + 3} damage. The monster has {enemy['Health']} left.")
+                    print(f"\nYou attack the {enemy['Monster name']} BONK with your {Inventory[0]} and you do {PlayerStrenght + 3} damage. The monster has {enemy['Health']} left.")
                 elif Inventory[0] == "Shortsword":
                     enemy["Health"] -= (PlayerStrenght + 1)
-                    print(f"\nYou attack the {enemy['Monster name']}SHANK with your {Inventory[0]} and you do {PlayerStrenght + 1} damage. The monster has {enemy['Health']} left.")
+                    print(f"\nYou attack the {enemy['Monster name']} SHANK with your {Inventory[0]} and you do {PlayerStrenght + 1} damage. The monster has {enemy['Health']} left.")
 
                 if enemy["Health"] <= 0:
                     print(f"\nYou beat the monster. You get {enemy['Reward']} gold.")
@@ -390,11 +390,11 @@ def Combat(enemy):
             if CombatChoice == "attack":
                 if Inventory[0] == "Longsword":
                     enemy["Health"] -= (PlayerStrenght + 3)
-                    print(f"\nYou attack the {enemy['Monster name']}BONK with your {Inventory[0]} and you do {PlayerStrenght + 3} damage. The monster has {enemy['Health']} left.")
+                    print(f"\nYou attack the {enemy['Monster name']} BONK with your {Inventory[0]} and you do {PlayerStrenght + 3} damage. The monster has {enemy['Health']} left.")
                     
                 elif Inventory[0] == "Shortsword":
                     enemy["Health"] -= (PlayerStrenght + 1)
-                    print(f"\nYou attack the {enemy['Monster name']}SHANK with your {Inventory[0]} and you do {PlayerStrenght + 1} damage. The monster has {enemy['Health']} left.")
+                    print(f"\nYou attack the {enemy['Monster name']} SHANK with your {Inventory[0]} and you do {PlayerStrenght + 1} damage. The monster has {enemy['Health']} left.")
 
                 if enemy["Health"] <= 0:
                     print(f"\nYou beat the monster. You get {enemy['Reward']} gold.")
