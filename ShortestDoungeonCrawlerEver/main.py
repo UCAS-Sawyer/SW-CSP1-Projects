@@ -140,7 +140,7 @@ def DungeonEntrance():
     if EnterDungeon == "yes":
         print("\nYou enter the crypt by descending down the long winding staircase.")
         Room1()
-    elif EnterDungeon == "no":
+    else:
         print("\nYou decide that you aren't ready and you go back to the village.")
         TownCenter()
 
