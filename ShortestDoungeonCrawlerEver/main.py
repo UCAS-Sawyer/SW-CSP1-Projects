@@ -7,6 +7,8 @@ Inventory = ["Shortsword", "Health Potion"]
 PlayerHealth = 25
 PlayerSpeed = 10
 PlayerStrenght = 3
+
+Restcount = 0
 WaterCollected = "No"
 BeenToRoom2 = "No"
 BeenToRoom3 = "No"
@@ -89,17 +91,37 @@ def Shop():
             print(f"\nYour inventory contains {Inventory} and you have {PlayerGold} gold")
 
 def House():
-    global PlayerHealth
+    global PlayerHealth, Restcount
 
     print("\nYou walk up the cobblestone pathway to your house. You enter your house and climb the stairs to your room.")
     Rest = input("\nDo you want to rest?(Yes/No)\t")
     Rest = Rest.lower()
 
     if Rest == "yes":
+        Restcount += 1
         print("\nYou rest for a while.")
 
-        PlayerHealth = PlayerHealth + 2
-        print(f"\nYou are well rested(+2 health), your health is now {PlayerHealth} and ready for an adventure, so you go back to the town center.")
+        if Restcount <= 5:
+            PlayerHealth = PlayerHealth + 2
+            print(f"\nYou are well rested(+2 health), your health is now {PlayerHealth} and ready for an adventure, so you go back to the town center.")
+
+        elif Restcount > 5 and Restcount <= 10:
+            PlayerHealth = PlayerHealth + 2
+            print(f"\nYou are well rested(+2 health), your health is now {PlayerHealth}, so you go back to the town center.")
+
+        elif Restcount > 10 and Restcount <= 15:
+            PlayerHealth = PlayerHealth + 0
+            print(f"\nYou go back to the town center!")
+
+        elif Restcount == 16:
+            PlayerHealth = PlayerHealth -2
+            print(f"\nYour health is now {PlayerHealth}, you have rested enough!")
+
+        elif Restcount == 17:
+            PlayerHealth = 0
+            print(f"\nYou shall never wake again, cheater!")
+            print("\fAchievement found: Anger the Narrator.")
+            IsPlayerDead()
 
         TownCenter()
     else:
