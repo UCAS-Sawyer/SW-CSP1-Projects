@@ -115,7 +115,7 @@ def House():
 
         elif Restcount == 16:
             PlayerHealth = PlayerHealth -2
-            print(f"\nYour health is now {PlayerHealth}, you have rested enough!")
+            print(f"\nYour health is now {PlayerHealth}, you have rested too much!")
 
         elif Restcount == 17:
             PlayerHealth = 0
