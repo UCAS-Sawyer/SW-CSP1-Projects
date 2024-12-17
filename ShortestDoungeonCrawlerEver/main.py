@@ -1,5 +1,7 @@
 #Sawyer Wood, Final
 
+import os
+
 PlayerGold = 20
 Inventory = ["Shortsword", "Health Potion"]
 PlayerHealth = 25
@@ -51,7 +53,7 @@ def TownCenter():
         TownCenter()
 
 def Shop():
-    global PlayerGold
+    global PlayerGold, PlayerSpeed
 
     ShopInventory = ["Health potions: 10g", "Speed potions: 15g", "Longsword: 30g"]
     print(f"\nYou enter the old shop and see all the wares on the walls and counters. Welcome worrior we have: {ShopInventory}")
@@ -73,9 +75,9 @@ def Shop():
                 PlayerGold -= 10
                 Inventory.append("Health Potion")
             elif WhatDoYouWantToBuy == "speed potion" and PlayerGold >=15:
-                print("\nYou baught a speed potion.")
+                print("\nYou baught a speed potion and you drink it.(+1 Speed)")
                 PlayerGold -= 15
-                Inventory.append("SpeedPotion")
+                PlayerSpeed += 1
             elif WhatDoYouWantToBuy == "longsword" and PlayerGold >= 30:
                 print("\nYou bought a longsword")
                 PlayerGold -= 30
@@ -355,19 +357,19 @@ def Combat(enemy):
             
             if CombatChoice == "attack":
                 if Inventory[0] == "Longsword":
-                    enemy["Health"] - (PlayerStrenght + 3)
-                    print(f"\nYou attack the {enemy['Monster name']}BONK with your {Inventory[0]} and you do {PlayerStrenght + 3} damage.")
+                    enemy["Health"] -= (PlayerStrenght + 3)
+                    print(f"\nYou attack the {enemy['Monster name']}BONK with your {Inventory[0]} and you do {PlayerStrenght + 3} damage. The monster has {enemy['Health']} left.")
                 elif Inventory[0] == "Shortsword":
-                    enemy["Health"] - (PlayerStrenght + 1)
-                    print(f"\nYou attack the {enemy['Monster name']}SHANK with your {Inventory[0]} and you do {PlayerStrenght + 1} damage.")
+                    enemy["Health"] -= (PlayerStrenght + 1)
+                    print(f"\nYou attack the {enemy['Monster name']}SHANK with your {Inventory[0]} and you do {PlayerStrenght + 1} damage. The monster has {enemy['Health']} left.")
 
                 if enemy["Health"] <= 0:
-                    print(f"You beat the monster. You get {enemy['Reward']} gold.")
+                    print(f"\nYou beat the monster. You get {enemy['Reward']} gold.")
                     PlayerGold += enemy["Reward"]
                     return
             
             else:
-                print("You think to hard. To bad.")
+                print("\nYou think to hard. To bad.")
                          
     elif PlayerSpeed > enemy["Speed"]:
         while True:
@@ -387,12 +389,12 @@ def Combat(enemy):
             
             if CombatChoice == "attack":
                 if Inventory[0] == "Longsword":
-                    enemy["Health"] = enemy["Health"] - (PlayerStrenght + 3)
-                    print(f"\nYou attack the {enemy['Monster name']}BONK with your {Inventory[0]} and you do {PlayerStrenght + 3} damage.")
+                    enemy["Health"] -= (PlayerStrenght + 3)
+                    print(f"\nYou attack the {enemy['Monster name']}BONK with your {Inventory[0]} and you do {PlayerStrenght + 3} damage. The monster has {enemy['Health']} left.")
                     
                 elif Inventory[0] == "Shortsword":
-                    enemy["Health"] = enemy["Health"] - (PlayerStrenght + 1)
-                    print(f"\nYou attack the {enemy['Monster name']}SHANK with your {Inventory[0]} and you do {PlayerStrenght + 1} damage.")
+                    enemy["Health"] -= (PlayerStrenght + 1)
+                    print(f"\nYou attack the {enemy['Monster name']}SHANK with your {Inventory[0]} and you do {PlayerStrenght + 1} damage. The monster has {enemy['Health']} left.")
 
                 if enemy["Health"] <= 0:
                     print(f"\nYou beat the monster. You get {enemy['Reward']} gold.")
@@ -406,6 +408,8 @@ def Combat(enemy):
 
             PlayerHealth -= enemy["Attack"]
             IsPlayerDead()
+
+os.system("cls")
 
 print("\nAn evil necromancer is living in the old crypt down just out of town. The village has grown worried, so they have picked you to fight him. You have some basic items that they have given you. Good luck. Try to do it as fast as you can.")
 print("\nYou walk out of your house, down the cobblestone pathway, to the town center.")
